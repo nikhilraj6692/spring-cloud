@@ -1,4 +1,4 @@
-package com.thoughtmechanix.configserver;
+package com.spring.cloud.poc.configserver;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
