@@ -18,7 +18,6 @@ import org.springframework.web.client.RestTemplate;
  *
  */
 @SpringBootApplication
-@RefreshScope
 @EnableEurekaClient
 @EnableFeignClients
 @EnableDiscoveryClient

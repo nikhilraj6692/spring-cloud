@@ -1,0 +1,19 @@
+zuul:
+  prefix: /api
+  routes:
+    abc:
+      path: /tzf/service/**
+      serviceId: licensingservice
+    organizationservice: /organization/**
+hystrix:
+  command:
+    licensingservice:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 16000
+organizationservice:
+  ribbon:
+    ReadTimeout: 16000
+#only set serviceId.ribbon.ReadTimeout if you have to give configuration more than 5 seconds
+    
