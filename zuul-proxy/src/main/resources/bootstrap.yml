@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: zuulproxy
+  profiles:
+    active: default
+  cloud:
+    config:
+      uri: http://localhost:10001
+      enabled: true
