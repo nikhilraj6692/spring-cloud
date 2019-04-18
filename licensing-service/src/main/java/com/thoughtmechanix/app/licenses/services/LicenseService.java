@@ -1,4 +1,4 @@
-package com.thoughtmechanix.licenses.services;
+package com.thoughtmechanix.app.licenses.services;
 
 import org.springframework.stereotype.Service;
 

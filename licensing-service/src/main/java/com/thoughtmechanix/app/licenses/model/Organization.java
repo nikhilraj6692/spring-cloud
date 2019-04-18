@@ -1,4 +1,4 @@
-package com.thoughtmechanix.licenses.model;
+package com.thoughtmechanix.app.licenses.model;
 
 public class Organization {
 

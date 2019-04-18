@@ -1,4 +1,4 @@
-package com.thoughtmechanix.organizationservice.service;
+package com.thoughtmechanix.app.organizationservice.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.thoughtmechanix.app.filters.UserContext;
+import com.thoughtmechanix.app.filters.UserContextHolder;
+
 @RestController
 @RequestMapping(value = "v1/organizations")
 @RefreshScope
@@ -17,6 +20,7 @@ public class OrganizationController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public String getOrganization() {
+		System.out.println(UserContextHolder.getContext().getCorrelationId());
 		return "This is get";
 	}
 

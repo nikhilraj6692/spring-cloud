@@ -1,4 +1,4 @@
-package com.thoughtmechanix.licenses.controller;
+package com.thoughtmechanix.app.licenses.controller;
 
 import java.util.List;
 import java.util.Random;
@@ -21,8 +21,10 @@ import org.springframework.web.client.RestTemplate;
 
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
-import com.thoughtmechanix.licenses.model.License;
-import com.thoughtmechanix.licenses.services.LicenseService;
+import com.thoughtmechanix.app.filters.UserContext;
+import com.thoughtmechanix.app.filters.UserContextHolder;
+import com.thoughtmechanix.app.licenses.model.License;
+import com.thoughtmechanix.app.licenses.services.LicenseService;
 
 @RestController
 @RequestMapping(value = "v1/organizations/{organizationId}/licenses")
@@ -51,6 +53,7 @@ public class LicenseServiceController {
 	@RequestMapping(method = RequestMethod.GET)
 	public License getLicenses(@PathVariable("organizationId") String organizationId,
 			@RequestParam(required = false, value = "method") String method) {
+		System.out.println(UserContextHolder.getContext().getCorrelationId());
 		String id = null;
 		if (method.equalsIgnoreCase("Feign")) {
 			System.out.println("Feign");
@@ -70,6 +73,7 @@ public class LicenseServiceController {
 					String.class);
 			id = response.getBody();
 		}
+		System.out.println(UserContextHolder.getContext().getCorrelationId());
 
 		if (id == null) {
 			id = "";
@@ -101,7 +105,7 @@ public class LicenseServiceController {
 	public String checkHistrixMechanism() {
 		System.out.println("in check hystrix");
 		randomlyRunLong();
-		//throw new RuntimeException();
+		// throw new RuntimeException();
 		return String.format("This is hystrix check");
 	}
 

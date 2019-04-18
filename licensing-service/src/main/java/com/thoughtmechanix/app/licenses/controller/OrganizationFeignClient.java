@@ -1,4 +1,4 @@
-package com.thoughtmechanix.licenses.controller;
+package com.thoughtmechanix.app.licenses.controller;
 
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
